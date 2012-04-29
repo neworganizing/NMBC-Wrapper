@@ -28,6 +28,16 @@ html, body {
     padding-left: 20px;
 }
 
+#logo {
+    float: left;
+}
+
+#signupdiv {
+    float: right;
+    width: 300px;
+}
+
+
 #nav {
     clear: both;
     background: #EEEEEE;
@@ -111,17 +121,49 @@ ul#navigation li a {
 
 <div id="container">
 
-<!-- The masthead is where our logo will go -->
+<!-- The masthead is where our logo will go, it also has our signup form -->
 <div id="masthead">
-    <!-- Here is our logo -->
-    <img src="masthead-logo.png" alt="New Media Bootcamp Masthead">
+    <div id="logo">
+        <!-- Here is our logo -->
+        <a href="/page/content/home/"><img src="masthead-logo.png" alt="New Media Bootcamp Logo"></a>
+    </div>
+    <div id="signupdiv">
+        <!-- Here is our signup form. This submits to our default signup page. Be careful when changing this code. -->
+        <form name="signup" action="/page/s/" method="post" id="signup">
+            <div class="fieldset">
+            <div class="input"><input type="email" class="text" size="30" id="email" name="email" placeholder="email*"></div></div>
+
+            <div class="fieldset">
+            <div class="input"><input size="8" id="zip" name="zip" type="text" placeholder="zip"></div></div>
+
+            <div class="input"><input id="quick-signup-submit" name="submit-btn" value="Sign-Up!" type="submit"></div>
+
+            <script type="text/javascript">
+                bQuery.bsd.spud('populateForm', 'signup',
+                [
+                    'email',
+                    'firstname',
+                    'lastname',
+                    'addr1',
+                    'addr2',
+                    'city',
+                    'state_cd',
+                    'zip',
+                    'country',
+                    'phone'
+                ]);
+
+                var submitted_state_cd = null;
+            </script>
+        </form>
+    </div>
 </div>
 
 <!-- The navigation bar is where our links to different pages will be -->
 <div id="nav">
     <ul id="navigation">
         <!-- Change the part inside href="" to include the link to the 'homepage' you created -->
-        <li><a href="#">Home</a></li>
+        <li><a href="/page/content/home/">Home</a></li>
         
         <!-- Change the part inside of the href="" to include the link to your 2nd page -->
         <li><a href="#">Extra Content</a></li>
