@@ -44,6 +44,10 @@ html, body {
   margin:0 0 5px;
 }
 
+#signup-email {
+  width:200px;
+}
+
 #nav {
     clear: both;
     background: #EEEEEE;
@@ -135,12 +139,15 @@ ul#navigation li a {
     </div>
     <div id="signupdiv">
         <!-- Here is our signup form. This submits to our default signup page. Be careful when changing this code. -->
-        <form name="signup" action="/page/s/" method="post" id="signup">
+        <form name="signup" action="/page/s/" method="post" id="signup" class="labelize">
             <fieldset>
               <legend>Sign Up for updates!</legend>
-                <input type="email" class="text" size="30" id="email" name="email" placeholder="email*">
+              
+              <label for="signup-email">Email Address</label>
+              <input type="text" class="text" id="signup-email" name="email">
 
-                <input size="8" id="zip" name="zip" type="text" placeholder="zip">
+              <label for="signup-zip">ZIP Code</label>
+              <input id="signup-zip" name="zip" type="text">
 
                 <input id="quick-signup-submit" name="submit-btn" value="Sign-Up!" type="submit">
             </fieldset>
@@ -271,6 +278,13 @@ The content of this page was created for a training project designed to teach ne
   js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1&appId=265272256872050";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="source.js"></script>
+<script>
+jQuery(document).ready(function() {
+  jQuery(".labelize input:text").clearingInput();
+});
+</script>
 
 </body>
-</html>
+</html
