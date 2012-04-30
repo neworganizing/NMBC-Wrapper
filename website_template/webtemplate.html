@@ -3,24 +3,28 @@
 <head>
 <title>Title Of The Page</title>
 
-
-
 <!-- Inline CSS - Usually We Link To An External Link, But This Is Easier To Edit -->
 <style type="text/css">
 
+/* These rules apply to the entire page. */
 html, body {
+    /* We don't want any padding or borders of any kind surrounding our page */
     margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
+    
+    /* We want our text to default to Helvetica and then to a sans-serif font */
     font-family: Helvetica, sans-serif;
 }
 
+/* These rules apply to our container (which holds our content) and our footer */
 #container, #footer {
     width: 1020px;
     margin: 0 auto;
 }
 
+/* These rules apply simply to the masthead on the top of the page. */
 #masthead {
     width: 1020px;
     overflow: hidden;
@@ -28,16 +32,34 @@ html, body {
     padding-left: 20px;
 }
 
+/* This is the rule we apply to our header image. */
 #logo {
     float: left;
 }
 
+/* This applies to the container that holds our signup form */
 #signupdiv {
     float: right;
     width: 300px;
 }
 
+/* We don't want a border surrounding our textfields */
+#signup fieldset {
+  border:none;
+}
 
+/* This applies to our signup fields */
+#signup input {
+  display: block;
+  margin:0 0 5px;
+}
+
+/* This details the width of our pages */
+#signup-email {
+  width:200px;
+}
+
+/* This is the navigation bar container */
 #nav {
     clear: both;
     background: #EEEEEE;
@@ -46,15 +68,18 @@ html, body {
     overflow: hidden;
 }
 
+/* This is for the list of navigation items */
 ul#navigation { 
     display: inline;
     float: left;
 }
 
+/* This tells our content to be inline instead of stacked */
 ul#navigation li {
     display: inline;
 }
 
+/* This is the individual links. This allow the entire box to be a link. */
 ul#navigation li a {
     padding: 11px 15px;
     margin-left: 3px;
@@ -66,6 +91,7 @@ ul#navigation li a {
     background: #DFDFDF;
 }
 
+/* This is the container for our core content, including the widgets and BSD-inserts */
 #insidecontent {
     width: 1016px;
     border-top: none;
@@ -73,6 +99,7 @@ ul#navigation li a {
     clear: both;
 }
 
+/* This is for the BSD content aligned to the right */
 #right {
     float: right;
     display: inline;
@@ -81,6 +108,7 @@ ul#navigation li a {
     padding: 20px 0px;
 }
 
+/* This is styles for the widgets */
 #left {
     float: left;
     display: inline;
@@ -88,12 +116,14 @@ ul#navigation li a {
     margin: 15px 0 0 20px;
 }
 
+/* This gives a style to individual widgets */
 .sidebar-item {
     margin: 20px 5px;
     border: 1px solid gray;
     padding: 5px;
 }
 
+/* This is the styles for our footer */
 #footer {
     font-size: 1em;
     text-align: center;
@@ -129,32 +159,18 @@ ul#navigation li a {
     </div>
     <div id="signupdiv">
         <!-- Here is our signup form. This submits to our default signup page. Be careful when changing this code. -->
-        <form name="signup" action="/page/s/" method="post" id="signup">
-            <div class="fieldset">
-            <div class="input"><input type="email" class="text" size="30" id="email" name="email" placeholder="email*"></div></div>
+        <form name="signup" action="/page/s/" method="post" id="signup" class="labelize">
+            <fieldset>
+              <legend>Sign Up for updates!</legend>
+              
+              <label for="signup-email">Email Address</label>
+              <input type="text" class="text" id="signup-email" name="email">
 
-            <div class="fieldset">
-            <div class="input"><input size="8" id="zip" name="zip" type="text" placeholder="zip"></div></div>
+              <label for="signup-zip">ZIP Code</label>
+              <input id="signup-zip" name="zip" type="text">
 
-            <div class="input"><input id="quick-signup-submit" name="submit-btn" value="Sign-Up!" type="submit"></div>
-
-            <script type="text/javascript">
-                bQuery.bsd.spud('populateForm', 'signup',
-                [
-                    'email',
-                    'firstname',
-                    'lastname',
-                    'addr1',
-                    'addr2',
-                    'city',
-                    'state_cd',
-                    'zip',
-                    'country',
-                    'phone'
-                ]);
-
-                var submitted_state_cd = null;
-            </script>
+                <input id="quick-signup-submit" name="submit-btn" value="Sign-Up!" type="submit">
+            </fieldset>
         </form>
     </div>
 </div>
@@ -162,7 +178,7 @@ ul#navigation li a {
 <!-- The navigation bar is where our links to different pages will be -->
 <div id="nav">
     <ul id="navigation">
-        <!-- Change the part inside href="" to include the link to the 'homepage' you created -->
+        <!-- The part inside href="" is setup to link to the 'homepage' content page -->
         <li><a href="/page/content/home/">Home</a></li>
         
         <!-- Change the part inside of the href="" to include the link to your 2nd page -->
@@ -282,6 +298,16 @@ The content of this page was created for a training project designed to teach ne
   js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1&appId=265272256872050";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- The following code helps us with our top-right signup box -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+(function(a){a.extend(a.fn,{clearingInput:function(b){var c={blurClass:"blur"};b=a.extend(c,b);return this.each(function(){var e=a(this).addClass(b.blurClass);var g=e.parents("form:first");var f,h;h=b.text||d()||e.val();if(h){e.val(h);e.blur(function(){if(e.val()===""){e.addClass(b.blurClass).val(h)}}).focus(function(){if(e.val()===h){e.val("")}e.removeClass(b.blurClass)});g.submit(function(){if(e.hasClass(b.blurClass)){e.val("")}});e.blur()}function d(){f=g.find("label[for="+e.attr("id")+"]");return f?f.css({position:"absolute",left:"-9999px"}).text():""}})}})})(jQuery);
+
+jQuery(document).ready(function() {
+  jQuery(".labelize input:text").clearingInput();
+});
+</script>
 
 </body>
 </html>
