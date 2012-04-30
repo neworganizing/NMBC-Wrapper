@@ -13,6 +13,7 @@ You can view this repository live at [http://tools.neworganizing.com/projects/wr
 ## Credits
 
 Nick Catalano ([NickCatal](https://github.com/nickcatal) / [@nickcatal](http://twitter.com/nickcatal))
+Jared ([imjared](https://github.com/imjared))
 
 (feel free to insert your name here)
 
