@@ -279,8 +279,9 @@ The content of this page was created for a training project designed to teach ne
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="source.js"></script>
 <script>
+(function(a){a.extend(a.fn,{clearingInput:function(b){var c={blurClass:"blur"};b=a.extend(c,b);return this.each(function(){var e=a(this).addClass(b.blurClass);var g=e.parents("form:first");var f,h;h=b.text||d()||e.val();if(h){e.val(h);e.blur(function(){if(e.val()===""){e.addClass(b.blurClass).val(h)}}).focus(function(){if(e.val()===h){e.val("")}e.removeClass(b.blurClass)});g.submit(function(){if(e.hasClass(b.blurClass)){e.val("")}});e.blur()}function d(){f=g.find("label[for="+e.attr("id")+"]");return f?f.css({position:"absolute",left:"-9999px"}).text():""}})}})})(jQuery);
+
 jQuery(document).ready(function() {
   jQuery(".labelize input:text").clearingInput();
 });
