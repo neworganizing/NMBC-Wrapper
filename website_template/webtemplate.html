@@ -3,7 +3,7 @@
 <head>
 <title>Title Of The Page</title>
 
-<!-- Inline CSS - Usually We Link To An External Link, But This Is Easier To Edit -->
+<!-- The following is CSS, which defines the 'look' or 'style' of our page. CSS traditionally lives alone in .css files but it can also be included inside <style></style> tags or 'inline' inside an HTML element (for example <p style="csshere"></p>) -->
 <style type="text/css">
 
 /* These rules apply to the entire page. */
@@ -45,18 +45,18 @@ html, body {
 
 /* We don't want a border surrounding our textfields */
 #signup fieldset {
-  border:none;
+    border: none;
 }
 
 /* This applies to our signup fields */
 #signup input {
-  display: block;
-  margin:0 0 5px;
+    display: block;
+    margin: 0 0 5px;
 }
 
 /* This details the width of our pages */
 #signup-email {
-  width:200px;
+    width: 200px;
 }
 
 /* This is the navigation bar container */
@@ -130,6 +130,8 @@ ul#navigation li a {
 }
 
 </style>
+
+<!-- Everything inside the <script type="text/javascript"></script> is run in the user's browser. We use it to insert elements from Facebook, Twitter and Google and modify the page layout for older browsers -->
 
 <!-- This is our Google Analytics code, replace UA-XXXXX-Y with the ID code that Google gives you -->
 <script type="text/javascript">
@@ -289,6 +291,11 @@ ul#navigation li a {
 The content of this page was created for a training project designed to teach new media skills through simulation, and is entirely fictional. You can download a free copy of this template and submit modifications for future trainings via our <a href="https://github.com/neworganizing/NMBC-Wrapper">GitHub Repository</a>.
 </div>
 
+
+<!-- You Shouldn't Need To Edit The Code Below. -->
+
+
+
 <!-- The following is necessary for our Facebook integration -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -299,7 +306,7 @@ The content of this page was created for a training project designed to teach ne
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<!-- The following code helps us with our top-right signup box -->
+<!-- The following code helps us with our top-right signup box in older browsers -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>
 (function(a){a.extend(a.fn,{clearingInput:function(b){var c={blurClass:"blur"};b=a.extend(c,b);return this.each(function(){var e=a(this).addClass(b.blurClass);var g=e.parents("form:first");var f,h;h=b.text||d()||e.val();if(h){e.val(h);e.blur(function(){if(e.val()===""){e.addClass(b.blurClass).val(h)}}).focus(function(){if(e.val()===h){e.val("")}e.removeClass(b.blurClass)});g.submit(function(){if(e.hasClass(b.blurClass)){e.val("")}});e.blur()}function d(){f=g.find("label[for="+e.attr("id")+"]");return f?f.css({position:"absolute",left:"-9999px"}).text():""}})}})})(jQuery);
