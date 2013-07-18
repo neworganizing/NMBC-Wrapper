@@ -238,44 +238,10 @@ ul#navigation li a {
 
     <!-- We also will add a live twitter feed -->
     <div id="twitter" class="sidebar-item">
-        <!-- This Javascript Code is from Twitter's Widget Profile Page: https://twitter.com/about/resources/widgets/widget_profile -->
-        <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-        <script>
-        new TWTR.Widget({
-          version: 2,
-          type: 'profile',
-          rpp: 6,
-          interval: 30000,
-          // Demensions of Widget
-          width: 280,
-          height: 300,
-  
-          // Style of Widget
-          theme: {
-            // Shell: Box surrounding tweets
-            shell: {
-              background: '#eeeeee',
-              color: '#000000'
-            },
-            // Tweets: Central Area Of Tweets
-            tweets: {
-              background: '#ffffff',
-              color: '#000000',
-              links: '#0735eb'
-            }
-          },
-          features: {
-            // We Do Want A Scrollbar
-            scrollbar: true,
-            // We do not want to loop through tweets
-            loop: false,
-            // We do not want to enable animation
-            live: false,
-            behavior: 'all'
-          }
-          // Set Username Below
-        }).render().setUser('neworganizing').start();
-        </script>
+        <!-- This Javascript Code is from Twitter's Widget Profile Page: https://twitter.com/settings/widgets -->
+<a class="twitter-timeline" href="https://twitter.com/neworganizing" data-widget-id="357712359910944769">Tweets by @neworganizing</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
     </div>
 
 </div>
